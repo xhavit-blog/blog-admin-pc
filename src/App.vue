@@ -1,17 +1,16 @@
 <template>
     <div id="app">
-        <Article title="test title" content="test content" />
+        <Header />
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-import Article from './components/Article';
+import Header from './component/Header';
 
 export default {
     name: 'App',
-    components: {
-        Article,
-    },
+    components: { Header },
 };
 </script>
 

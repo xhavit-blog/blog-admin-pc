@@ -1,7 +1,7 @@
 <style src="./index.scss" lang="scss"></style>
 
 <template>
-    <div></div>
+    <div>Edit Article</div>
 </template>
 
 <script>
