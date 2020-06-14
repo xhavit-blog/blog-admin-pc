@@ -14,26 +14,40 @@
         <div class="xp-jlafsf-control">
             <textarea v-model="content"></textarea>
         </div>
-        <button @click="addArticle()">提交</button>
+        <button @click="updateArticle()">确认修改</button>
     </div>
 </template>
 
 <script>
-import { addArticleApi } from '@/api/article';
+import { queryArticleDetailApi, updateArticleApi } from '@/api/article';
 
 export default {
     data() {
+        const { id } = this.$route.params;
+
         return {
+            id,
             title: '',
             content: '',
         };
     },
-    async created() {},
+    async created() {
+        this.queryArticleDetail();
+    },
     methods: {
-        async addArticle() {
-            const { title, content } = this;
+        async queryArticleDetail() {
+            const { title, content } = await queryArticleDetailApi({
+                params: { id: this.id },
+            });
 
-            const { id } = await addArticleApi({
+            this.title = title;
+            this.content = content;
+        },
+        async updateArticle() {
+            const { id, title, content } = this;
+
+            await updateArticleApi({
+                params: { id },
                 data: { title, content },
             });
 

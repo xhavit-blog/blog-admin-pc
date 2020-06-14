@@ -2,7 +2,7 @@ import VueRouter from 'vue-router';
 import ArticleList from '../view/article/ArticleList';
 import ArticleDetail from '../view/article/ArticleDetail';
 import ArticleAdd from '../view/article/ArticleAdd';
-import ArticleEdit from '../view/article/ArticleEdit';
+import ArticleUpdate from '../view/article/ArticleUpdate';
 import TagList from '../view/tag/TagList';
 
 const routes = getRoutes();
@@ -14,22 +14,27 @@ const router = new VueRouter({ routes });
 function getRoutes() {
     return [
         {
+            name: 'ArticleList',
             path: '/',
             component: ArticleList,
         },
         {
+            name: 'ArticleAdd',
             path: '/article/add',
             component: ArticleAdd,
         },
         {
-            path: '/article/:id/edit',
-            component: ArticleEdit,
+            name: 'ArticleUpdate',
+            path: '/article/update/:id',
+            component: ArticleUpdate,
         },
         {
+            name: 'ArticleDetail',
             path: '/article/:id',
             component: ArticleDetail,
         },
         {
+            name: 'TagList',
             path: '/tag',
             component: TagList,
         },
