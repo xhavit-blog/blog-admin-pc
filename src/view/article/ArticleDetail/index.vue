@@ -15,14 +15,16 @@
                 >
             </h1>
         </header>
-        <section>{{ content }}</section>
+        <section><Markdonw :markdown="content" /></section>
     </article>
 </template>
 
 <script>
+import Markdonw from '@/component-base/Markdown';
 import { queryArticleDetailApi } from '@/api/article';
 
 export default {
+    components: { Markdonw },
     data() {
         const { id } = this.$route.params;
 
