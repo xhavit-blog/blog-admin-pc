@@ -4,7 +4,7 @@ import http from '@/util/http';
  * 查询文章列表
  */
 export async function queryArticleListApi() {
-    return await http({
+    return http({
         url: '/article/list',
         method: 'POST',
     });
@@ -14,7 +14,7 @@ export async function queryArticleListApi() {
  * 查询文章详情
  */
 export async function queryArticleDetailApi({ params }) {
-    return await http({
+    return http({
         url: '/article/detail/:id',
         params,
     });
@@ -24,7 +24,7 @@ export async function queryArticleDetailApi({ params }) {
  * 添加文章
  */
 export async function addArticleApi({ data }) {
-    return await http({
+    return http({
         url: '/article/add',
         method: 'POST',
         data,
@@ -35,7 +35,7 @@ export async function addArticleApi({ data }) {
  * 修改文章
  */
 export async function updateArticleApi({ params, data }) {
-    return await http({
+    return http({
         url: '/article/update/:id',
         method: 'POST',
         params,
@@ -47,7 +47,7 @@ export async function updateArticleApi({ params, data }) {
  * 删除文章
  */
 export async function removeArticleApi({ params }) {
-    return await http({
+    return http({
         url: '/article/remove/:id',
         method: 'DELETE',
         params,
